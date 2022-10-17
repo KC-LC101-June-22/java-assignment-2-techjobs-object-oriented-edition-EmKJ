@@ -1,8 +1,6 @@
 package org.launchcode.techjobs.oo.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -52,7 +50,7 @@ public class JobTest {
     public void testJobsForEquality() {
         Job job1 = new Job();
         Job job2 = new Job();
-        assertEquals(job1.equals(job2), false);
+        assertFalse(job1.equals(job2));
     }
 
     @Test
