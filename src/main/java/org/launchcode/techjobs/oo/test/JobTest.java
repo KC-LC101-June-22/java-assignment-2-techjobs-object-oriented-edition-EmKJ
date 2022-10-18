@@ -85,6 +85,8 @@ public class JobTest {
         // assertTrue(testString1.contains("OOPS! This job does not seem to exist."));
 
         String testString2 = job4.toString();
-        assertTrue(testString2.contains("Data not available"));
+        // assertTrue(testString2.contains("Data not available"));
+        assertEquals(testString2,
+                "\nID: 1\nName: Product Supervisor\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality Control\nCore Competency: Persistence\n");
     }
 }
