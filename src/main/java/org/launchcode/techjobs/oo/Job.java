@@ -47,7 +47,7 @@ public class Job {
     }
 
     public String noDataFound(String field) {
-        if (field.trim().length() < 1 || field == null) {
+        if (field.trim().length() < 1) {
             return "Data not available";
         }
         return field;
