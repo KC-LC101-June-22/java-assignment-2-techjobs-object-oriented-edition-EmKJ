@@ -76,7 +76,7 @@ public class JobTest {
         // assertTrue(testString.contains("Core Competency: " +
         // job3.getCoreCompetency()));
         assertEquals(testString,
-                "\nID: 1\nName: Product Supervisor\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality Control\nCore Competency: Persistence\n");
+                "\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality Control\nCore Competency: Persistence\n");
         assertEquals(testLines.length, 6);
     }
 
