@@ -68,6 +68,7 @@ public class JobTest {
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String testString = job3.toString();
         String[] testLines = testString.trim().split("\\n");
+        int currentID = job3.getId();
         // assertTrue(testString.contains("ID: " + job3.getId()));
         // assertTrue(testString.contains("Name: " + job3.getName()));
         // assertTrue(testString.contains("Employer: " + job3.getEmployer()));
@@ -76,20 +77,24 @@ public class JobTest {
         // assertTrue(testString.contains("Core Competency: " +
         // job3.getCoreCompetency()));
         assertEquals(testString,
-                "\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality Control\nCore Competency: Persistence\n");
+                "\nID: " + currentID
+                        + "\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n");
         assertEquals(testLines.length, 6);
     }
 
     @Test
     public void testToStringHandlesEmptyField() {
+        Job job1 = new Job();
+        String testString1 = job1.toString();
+        assertTrue(testString1.contains("OOPS! This job does not seem to exist."));
+
         Job job4 = new Job("Product Supervisor", new Employer(""), new Location("Desert"),
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        // String testString1 = job1.toString();
-        // assertTrue(testString1.contains("OOPS! This job does not seem to exist."));
-
         String testString2 = job4.toString();
-        // assertTrue(testString2.contains("Data not available"));
+        int currentID = job4.getId();
         assertEquals(testString2,
-                "\nID: 5\nName: Product Supervisor\nEmployer: Data not available\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n");
+                "\nID: " + currentID
+                        + "\nName: Product Supervisor\nEmployer: Data not available\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n");
+        // assertTrue(testString2.contains("Data not available"));
     }
 }

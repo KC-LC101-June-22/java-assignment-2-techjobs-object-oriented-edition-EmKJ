@@ -1,8 +1,5 @@
 package org.launchcode.techjobs.oo;
 
-import java.util.Map;
-import java.util.Objects;
-
 public class Job {
 
     private int id;
@@ -33,19 +30,24 @@ public class Job {
         this.location = location;
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
-
     }
 
     @Override
     public String toString() {
-        return String.format(
+        String stringToPrint = String.format(
                 "\nID: %d\nName: %s\nEmployer: %s\nLocation: %s\nPosition Type: %s\nCore Competency: %s\n",
                 id, noDataFound(name), noDataFound(employer.getValue()), noDataFound(location.getValue()),
                 noDataFound(positionType.getValue()), noDataFound(coreCompetency.getValue()));
+        String[] splitString = stringToPrint.split("Data not available");
+
+        if (splitString.length == 6) {
+            return "ID: " + id + "\nOOPS! This job does not seem to exist.\n";
+        }
+        return stringToPrint;
     }
 
     public String noDataFound(String field) {
-        if (field.trim().length() < 1) {
+        if (field.trim().length() < 1 || field == null) {
             return "Data not available";
         }
         return field;
