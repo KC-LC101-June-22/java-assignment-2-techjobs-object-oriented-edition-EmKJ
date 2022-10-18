@@ -68,12 +68,15 @@ public class JobTest {
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String testString = job3.toString();
         String[] testLines = testString.trim().split("\\n");
-        assertTrue(testString.contains("ID: " + job3.getId()));
-        assertTrue(testString.contains("Name: " + job3.getName()));
-        assertTrue(testString.contains("Employer: " + job3.getEmployer()));
-        assertTrue(testString.contains("Location: " + job3.getLocation()));
-        assertTrue(testString.contains("Position Type: " + job3.getPositionType()));
-        assertTrue(testString.contains("Core Competency: " + job3.getCoreCompetency()));
+        // assertTrue(testString.contains("ID: " + job3.getId()));
+        // assertTrue(testString.contains("Name: " + job3.getName()));
+        // assertTrue(testString.contains("Employer: " + job3.getEmployer()));
+        // assertTrue(testString.contains("Location: " + job3.getLocation()));
+        // assertTrue(testString.contains("Position Type: " + job3.getPositionType()));
+        // assertTrue(testString.contains("Core Competency: " +
+        // job3.getCoreCompetency()));
+        assertEquals(testString,
+                "\nID: 1\nName: Product Supervisor\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality Control\nCore Competency: Persistence\n");
         assertEquals(testLines.length, 6);
     }
 
@@ -87,6 +90,6 @@ public class JobTest {
         String testString2 = job4.toString();
         // assertTrue(testString2.contains("Data not available"));
         assertEquals(testString2,
-                "\nID: 1\nName: Product Supervisor\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality Control\nCore Competency: Persistence\n");
+                "\nID: 5\nName: Product Supervisor\nEmployer: Data not available\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n");
     }
 }
